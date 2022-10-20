@@ -1,0 +1,70 @@
+@extends('layouts.adminlte')
+
+
+@section('content')
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">All Members</h3>
+                            <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                <div class="input-group-append">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Created</th>
+                                <th>Updated</th>
+                                <th>Change</th>
+                                <th>Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if($members)
+                                    @foreach($members as $member)
+                                        <tr>
+                                            <td>{{$member->id}}</td>
+                                            {{-- <td>{{$member->role}}</td> --}}
+                                            <td>{{$member->name}}</td>
+                                            <td>{{$member->email}}</td>
+                                            <td>{{$member->phone_number}}</td>
+                                            <td>{{$member->created_at?->diffForHumans()}}</td>
+                                            <td>{{$member->updated_at?->diffForHumans()}}</td>
+                                            <td><a href="{{url("/member/edit/$member->id") }}" style="color:#efef27;">Edit</a></td>
+                                            <td><a href="{{url("/member/delete/$member->id")}}" style="color:red;">Delete</a></td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+
+                            </tbody>
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+          </section>
+        </div>
+    </div>
+
+@endsection
+
+
