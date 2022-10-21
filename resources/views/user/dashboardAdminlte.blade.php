@@ -43,11 +43,8 @@
                                     <span class="info-box-text">Pending Tasks</span>
                                     <h6>{{$pending_task}} tasks</h6>
                                 </div>
-                                <!-- /.info-box-content -->
                             </div>
-                            <!-- /.info-box -->
                         </div>
-                        <!-- /.col -->
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="info-box">
                                 <span class="info-box-icon bg-orange"><i class="fas fa-battery-half"></i></span>
@@ -56,11 +53,8 @@
                                     <span class="info-box-text">Task on progress</span>
                                     <h6> {{$on_progress}} tasks </h6>
                                 </div>
-                                <!-- /.info-box-content -->
                             </div>
-                            <!-- /.info-box -->
                         </div>
-                        <!-- /.col -->
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="info-box">
                                 <span class="info-box-icon bg-success"><i class="fas fa-battery-full"></i></span>
