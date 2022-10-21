@@ -34,7 +34,7 @@ class AdminMembersController extends Controller
      */
     public function create()
     {
-        return view('member.create');
+        return view('member.addMembers');
     }
 
     /**
@@ -77,7 +77,7 @@ class AdminMembersController extends Controller
     public function edit($id)
     {
         $members = User::findOrFail($id);
-        return view('member.edit', compact('members'));
+        return view('member.editMember', compact('members'));
     }
 
     /**

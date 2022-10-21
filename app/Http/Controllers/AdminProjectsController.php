@@ -34,7 +34,7 @@ class AdminProjectsController extends Controller
     {
         $categories = Category::select('type','id')->get();
         $teams = User::where('role', "member")->get();
-        return view('project.create', compact('categories','teams'));
+        return view('project.addProjects', compact('categories','teams'));
     }
 
     /**
@@ -88,7 +88,7 @@ class AdminProjectsController extends Controller
         $categories = Category::select('type', 'id')->get();
         $projects = Project::findOrFail($id);
         $teams = User::where('role', 'member')->whereNotIn('id', $projects->users->pluck('id')->toArray())->get();
-        return view('project.edit',compact('projects', 'categories','teams'));
+        return view('project.editProject',compact('projects', 'categories','teams'));
     }
 
     /**

@@ -28,7 +28,7 @@ class AdminCategoriesController extends Controller
     public function create()
     {
         //
-        return view('category.create');
+        return view('category.addCategory');
     }
 
     /**
@@ -64,7 +64,7 @@ class AdminCategoriesController extends Controller
     public function edit($id)
     {
         $categories = Category::findOrFail($id);
-        return view('category.edit', compact('categories'));
+        return view('category.editCategory', compact('categories'));
     }
 
     /**

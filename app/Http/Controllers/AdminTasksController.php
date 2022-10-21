@@ -34,7 +34,7 @@ class AdminTasksController extends Controller
     {
         $members= User::where('role', 'member')->get();
         $project = Project::select('id','title')->get();
-        return view('task.create', compact('project','members'));
+        return view('task.assignTasks', compact('project','members'));
     }
 
     /**
@@ -102,7 +102,7 @@ class AdminTasksController extends Controller
         $tasks = Task::findOrFail($id);
         $project = Project::select('title', 'id')->get();
         $members = User::select('name','id')->get();
-        return view('task.edit', compact('tasks', 'members','project'));
+        return view('task.editTask', compact('tasks', 'members','project'));
     }
 
     /**
@@ -153,7 +153,7 @@ class AdminTasksController extends Controller
             return $q->whereDate('end_date', '>=', Carbon::now())->whereDate('end_date', '<=', Carbon::now()->addDays(2));
         })->get();
 
-        return view('task.expiringTasks', compact('tasks'));
+        return view('task.viewExpiringTasks', compact('tasks'));
 
     }
 }
