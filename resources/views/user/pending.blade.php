@@ -18,6 +18,7 @@
             <th>Status</th>
         </tr>
     </thead>
+    <tbody>
     @if($tasks->count() != 0)
             @foreach($tasks as $task)
                 <tr>

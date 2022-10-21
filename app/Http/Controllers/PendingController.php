@@ -12,6 +12,6 @@ class PendingController extends Controller
     public function index(){
         DB::table('tasks')->update(['seen' => 1]);
         $tasks = Task::where('user_id', Auth::user()->id)->where('status', 'pending')->get();
-        return view('user.pending', compact('tasks'));
+        return view('user.pendingAdminlte', compact('tasks'));
     }
 }

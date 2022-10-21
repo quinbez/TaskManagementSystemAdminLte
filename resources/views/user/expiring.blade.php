@@ -21,6 +21,7 @@
 
         </tr>
     </thead>
+    <tbody
     @if($tasks)
             @foreach($tasks as $task)
                 <tr>

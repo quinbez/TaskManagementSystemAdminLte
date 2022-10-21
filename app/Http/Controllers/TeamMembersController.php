@@ -13,6 +13,6 @@ class TeamMembersController extends Controller
 
         $members = User::where('role', 'member')->get();
         $project = Project::select('title', 'id');
-        return view('user.team', compact('members', 'project'));
+        return view('user.teamAdminlte', compact('members', 'project'));
     }
 }

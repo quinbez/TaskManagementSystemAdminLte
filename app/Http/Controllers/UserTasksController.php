@@ -14,7 +14,7 @@ class UserTasksController extends Controller
     public function index(){
         // dd(Auth::user()->role);
         $tasks = Task::where('user_id', Auth::user()->id)->get();
-        return view('user.alltasks', compact('tasks'));
+        return view('user.assignedTasksadminlte', compact('tasks'));
     }
 
 
@@ -24,7 +24,7 @@ class UserTasksController extends Controller
             return $q->whereDate('end_date', '>=', Carbon::now())->whereDate('end_date', '<=',Carbon::now()->addDays(2));
         })->get();
 
-        return view('user.expiring', compact('tasks'));
+        return view('user.expiringTasksAdminlte', compact('tasks'));
 
     }
 

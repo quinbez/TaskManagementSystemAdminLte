@@ -20,7 +20,7 @@ class UsersProjectsController extends Controller
 
         $projects = Auth::user()->projects;
         // dd($projects->toArray());
-        return view('user.projects', compact('projects'));
+        return view('user.assignedProjectsAdminlte', compact('projects'));
     }
 
     /**
@@ -53,7 +53,7 @@ class UsersProjectsController extends Controller
     public function show(Project $project)
     {
         $project->load('tasks.member');
-        return view('user.team', compact('project'));
+        return view('user.teamAdminlte', compact('project'));
     }
 
     /**
@@ -92,6 +92,6 @@ class UsersProjectsController extends Controller
     public function teamMemberDetail(Project $project, User $user){
         $tasks = Task::where('project_id', $project->id)->where('user_id', $user->id)->get();
         // dd($tasks->toArray());
-        return view('user.teamMemberDetails', compact('tasks', 'user'));
+        return view('user.memberDetails', compact('tasks', 'user'));
     }
 }
