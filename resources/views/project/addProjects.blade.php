@@ -1,6 +1,5 @@
 @extends('layouts.adminlte')
 
-<link rel="stylesheet" href="{{url('bower_components/select2/dist/css/select2.min.css')}}">
 
 @section('content')
     <div class="wrapper">

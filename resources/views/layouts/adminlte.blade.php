@@ -207,7 +207,7 @@ $count = App\Models\Task::where('status', '!=', 'pending')
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{route('tasks')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Assign Tasks</p>
                                     </a>
