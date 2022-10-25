@@ -14,7 +14,7 @@ class AdminNotificationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        DB::table('tasks')->update(['on_progress' => 1, 'completed' => 1]);
+        DB::table('tasks')->update(['seen' => 1]);
 
         $tasks = Task::where('status', '!=', 'pending')->get();
         // dd($tasks);

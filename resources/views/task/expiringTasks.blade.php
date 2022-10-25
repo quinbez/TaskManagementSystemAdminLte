@@ -1,7 +1,6 @@
-@extends('layouts.admin')
+@extends('layouts.adminlte')
 
 @section('content')
-
 <h3>Expiring Tasks</h3>
 <table class='table'>
     <thead>
@@ -41,7 +40,5 @@
                 </tr>
             @endforeach
         @endif
-
     </tbody>
-
 @endsection

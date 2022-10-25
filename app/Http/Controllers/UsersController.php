@@ -22,7 +22,7 @@ class UsersController extends Controller
         $data['on_progress'] = Task::where('user_id', Auth::user()->id)->where('status', 'on_progress')->count();
         $data['completed'] = Task::where('user_id', Auth::user()->id)->where('status', 'completed')->count();
 
-        return view('user.dashboard', $data);
+        return view('user.dashboardAdminlte', $data);
     }
 
     public function search(Request $request)

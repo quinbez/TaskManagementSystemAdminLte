@@ -48,11 +48,11 @@
 
                 <div class="form-group col-sm-6">
                     <label>Start Date</label>
-                    <input  type = "date"  name="start_date" id= 'fromDatePicker' autocomplete ='off' class='form-control' required="true">
+                    <input  type = "text"  name="start_date" id= 'fromDatePicker' autocomplete ='off' class='form-control' required="true">
                 </div>
                 <div class="form-group col-sm-6">
                     <label>End Date</label>
-                    <input  type = "date"  name="deadline" id= 'toDatePicker' autocomplete ='off' class='form-control' required="true">
+                    <input  type = "text"  name="deadline" id= 'toDatePicker' autocomplete ='off' class='form-control' required="true">
                 </div>
                           <div class="form-group col-sm-6">
                             <label>Description</label>

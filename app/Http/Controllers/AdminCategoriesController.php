@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoriesRequest;
 use App\Models\Category;
+use Exception;
 
 class AdminCategoriesController extends Controller
 {
@@ -39,9 +40,16 @@ class AdminCategoriesController extends Controller
      */
     public function store(CategoriesRequest $request)
     {
-        //
-        Category::create($request->all());
-        return redirect('category/index');
+        try{
+                $updated =  Category::create($request->all());
+                if($updated){
+                return redirect('category/index')->with('success', 'Category has been created successfully');
+                }else{
+                return redirect('category/index')->with('error', 'Category has not been created successfully');
+            }
+            }catch(Exception $ex){
+                return redirect('category/index')->with('error', 'error occured');
+            }
     }
 
     /**
@@ -76,6 +84,7 @@ class AdminCategoriesController extends Controller
      */
     public function update(Request $request)
     {
+        try{
         $id = $request->categoryId;
         $categories = Category::findOrFail($id);
         $categoryUpdate =[
@@ -83,10 +92,16 @@ class AdminCategoriesController extends Controller
         ];
         // $input = $request->all();
         // dd($input);
-        $categories->update($categoryUpdate);
-        return redirect('category/index');
+      $updated =  $categories->update($categoryUpdate);
+      if($updated){
+        return redirect('category/index')->with('success', 'Category has been updated successfully');
+    } else{
+        return redirect('category/index')->with('error', 'Category has not been updated successfully');
     }
-
+}catch(Exception $ex){
+    return redirect('category/index')->with('error', 'error occured');
+}
+}
     /**
      * Remove the specified resource from storage.
      *

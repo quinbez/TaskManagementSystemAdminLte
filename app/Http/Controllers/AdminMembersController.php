@@ -51,16 +51,21 @@ class AdminMembersController extends Controller
             // dd($request);
             // $request['password']='123456789';
             $input = $request->validated();
-            User::create([
+            $updated = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone_number' => $request->phone_number,
                 'role' => "member",
                 'password' => Hash::make($request->password),
             ]);
-            return redirect('member/index');
-        } catch (Exception $ex) {
-            dd($ex);
+             if($updated){
+              return redirect('member/index')->with('success', 'Member has been created successfully');
+            }else{
+                return redirect('member/index')->with('error', 'Member has not been created successfully');
+
+            }
+        }catch(Exception $ex){
+            return redirect('member/index')->with('error', 'error occured');
         }
     }
 
@@ -96,6 +101,7 @@ class AdminMembersController extends Controller
      */
     public function update(EditUserRequest $request)
     {
+        try{
         $id = $request->memberId;
         $member = User::findOrFail($id);
         $memberUpdate = [
@@ -106,9 +112,17 @@ class AdminMembersController extends Controller
         ];
         // $input = $request->all();
         // dd($input);
-        $member->update($memberUpdate);
-        return redirect('member/index');
+       $updated = $member->update($memberUpdate);
+       if($updated){
+        return redirect('member/index')->with('success', 'Member has been updated successfully');
+    }else{
+        return redirect('member/index')->with('error', 'Member has not been updated successfully');
+
     }
+}catch(Exception $ex){
+    return redirect('member/index')->with('error', 'error occured');
+}
+}
 
     /**
      * Remove the specified resource from storage.
@@ -129,15 +143,14 @@ class AdminMembersController extends Controller
         $tasks = Task::where('name', 'like', "%$request->search%")->get();
         $projects = Project::where('title', 'like', "%$request->search%")->get();
         $categories = Category::where('type', 'like', "%$request->search%")->get();
-        // dd(count($tasks));
         if (count($members) > 0) {
-            return view('member.index', compact('members'));
+            return view('member.allMembers', compact('members'));
         } elseif (count($tasks) > 0) {
-            return view('task.index', compact('tasks'));
+            return view('task.allTasks', compact('tasks'));
         } elseif (count($projects) > 0) {
-            return view('project.index', compact('projects'));
+            return view('project.allProjects', compact('projects'));
         } elseif (count($categories) > 0) {
-            return view('category.index', compact('categories'));
+            return view('category.allCategories', compact('categories'));
         } else
             return redirect()->back()->with('error', ' Nothing found');
     }

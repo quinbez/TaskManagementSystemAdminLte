@@ -9,6 +9,7 @@ use App\Models\Project;
 use App\Models\Category;
 use App\Models\User;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 
 class AdminProjectsController extends Controller
@@ -47,6 +48,7 @@ class AdminProjectsController extends Controller
     {
         // $teamMembers = implode(',',$request->team_member);
         // $users = User::whereIn('id', $request->team_member)->get();
+        try{
         $startDate = Carbon::parse($request->start_date)->format('Y-m-d');
         $deadline = Carbon::parse($request->deadline)->format('Y-m-d');
         // dd($teamMembers);
@@ -62,7 +64,14 @@ class AdminProjectsController extends Controller
 
          $project = Project::create($addedProject);
          $project->users()->attach($request->team_member);
-         return redirect('project/index');
+         if($project) {
+             return redirect('project/index')->with('success', 'Project has been created successfully');
+         }else{
+             return redirect('project/index')->with('error', 'Project has not been created');
+         }
+     }catch(Exception $ex){
+          return redirect('project/index')->with('error', 'Unknown error occured');
+     }
 
     }
 
@@ -100,24 +109,30 @@ class AdminProjectsController extends Controller
      */
     public function update(EditProjectRequest $request)
     {
+        try{
         $id = $request->projectId;
         $projects = Project::findOrFail($id);
-        // $teamMembers = implode(',',$request->team_member);
         $startDate = Carbon::parse($request->start_date)->format('Y-m-d');
         $deadline = Carbon::parse($request->deadline)->format('Y-m-d');
         $projectUpdate =[
             'title'=>$request->title,
             'category_id'=>$request->category_id,
             'description'=>$request->description,
-            // 'team_member'=>$teamMembers,
             'start_date'=>$startDate,
             'deadline'=>$deadline,
-            'status_id'=>$request->status_id
         ];
+
         $projects->users()->sync($request->team_member);
-        $projects->update($projectUpdate);
-        return redirect('project/index');
+        $updated = $projects->update($projectUpdate);
+        if($updated) {
+            return redirect('project/index')->with('success', 'Project has been updated successfully');
+        }else{
+            return redirect('project/index')->with('error', 'Project has not been updated successfully');
+        }
+    }catch(Exception $ex){
+         return redirect('project/index')->with('error', 'Unknown error occured');
     }
+}
 
     /**
      * Remove the specified resource from storage.

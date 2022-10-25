@@ -12,6 +12,7 @@
                     <div class="card card-danger p-4">
                         <div class="form-group">
                             <label>Type:</label>
+                            <input type="hidden" value="{{$categories->id}}" name="categoryId">
                             <input type="text" value="{{$categories->type}}" name="type" class="form-control" placeholder="Enter type">
                         </div>
                     </div>

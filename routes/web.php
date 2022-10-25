@@ -21,13 +21,15 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
     ])->group(function () {
-
+        Route::get('/logout', function () {
+            return view('auth.login');
+        });
 Route::get('/member/search', 'App\Http\Controllers\AdminMembersController@search')->name('search');
 Route::get('/member/create', 'App\Http\Controllers\AdminMembersController@create')->name('create');
 Route::post('/member', 'App\Http\Controllers\AdminMembersController@store')->name('store');
 Route::get('/member/index', 'App\Http\Controllers\AdminMembersController@index')->name('index');
 Route::get('/member/edit/{id}', 'App\Http\Controllers\AdminMembersController@edit')->name('edit');
-Route::get('/member/update', 'App\Http\Controllers\AdminMembersController@update')->name('update');
+Route::post('/member/update', 'App\Http\Controllers\AdminMembersController@update')->name('update');
 Route::get('/member/delete/{id}', 'App\Http\Controllers\AdminMembersController@destroy')->name('delete');
 
 
@@ -35,21 +37,21 @@ Route::get('/project/create', 'App\Http\Controllers\AdminProjectsController@crea
 Route::post('/project', 'App\Http\Controllers\AdminProjectsController@store')->name('storeproj');
 Route::get('/project/index', 'App\Http\Controllers\AdminProjectsController@index')->name('indexproj');
 Route::get('/project/edit/{id}', 'App\Http\Controllers\AdminProjectsController@edit')->name('projedit');
-Route::get('/project/update', 'App\Http\Controllers\AdminProjectsController@update')->name('projupdate');
+Route::post('/project/update', 'App\Http\Controllers\AdminProjectsController@update')->name('projupdate');
 Route::get('project/delete/{id}', 'App\Http\Controllers\AdminProjectsController@destroy')->name('projdelete');
 
 Route::get('/task/create', 'App\Http\Controllers\AdminTasksController@create')->name('tasks');
 Route::post('/task', 'App\Http\Controllers\AdminTasksController@store')->name('storetask');
 Route::get('/task/index', 'App\Http\Controllers\AdminTasksController@index')->name('indextask');
 Route::get('/task/edit/{id}', 'App\Http\Controllers\AdminTasksController@edit')->name('edittask');
-Route::get('/task/update', 'App\Http\Controllers\AdminTasksController@update')->name('updatetask');
+Route::post('/task/update', 'App\Http\Controllers\AdminTasksController@update')->name('updatetask');
 Route::get('/task/delete/{id}', 'App\Http\Controllers\AdminTasksController@destroy')->name('deletetask');
 
 Route::get('/category/create', 'App\Http\Controllers\AdminCategoriesController@create')->name('categories');
 Route::post('/category', 'App\Http\Controllers\AdminCategoriesController@store')->name('storecategory');
 Route::get('/category/index', 'App\Http\Controllers\AdminCategoriesController@index')->name('indexcategory');
 Route::get('/category/edit/{id}', 'App\Http\Controllers\AdminCategoriesController@edit')->name('editcateg');
-Route::get('/category/update', 'App\Http\Controllers\AdminCategoriesController@update')->name('updatecateg');
+Route::post('/category/update', 'App\Http\Controllers\AdminCategoriesController@update')->name('updatecateg');
 Route::get('/category/delete/{id}', 'App\Http\Controllers\AdminCategoriesController@destroy')->name('deletecateg');
 
 Route::get('/dashboard', 'App\Http\Controllers\AdminDashboardsController@index')->name('dashboards');

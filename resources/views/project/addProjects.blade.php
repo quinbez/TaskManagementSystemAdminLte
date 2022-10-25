@@ -2,6 +2,8 @@
 
 
 @section('content')
+<link rel="stylesheet" href="{{url('bower_components/select2/dist/css/select2.min.css')}}">
+
     <div class="wrapper">
         <div class="content-wrapper">
             <form action="{{ route('storeproj') }}" method="post" id="createMemberForm" class="p-4">

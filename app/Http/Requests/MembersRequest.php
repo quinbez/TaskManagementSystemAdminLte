@@ -28,7 +28,7 @@ class MembersRequest extends FormRequest
             'email'=>'required',
             'phone_number'=>'required',
             'password'=>'required',
-            // 'role'=>'required'
+            'role'=>'required'
         ];
     }
 }

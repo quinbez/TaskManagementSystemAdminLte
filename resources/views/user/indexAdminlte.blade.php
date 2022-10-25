@@ -1,13 +1,10 @@
 <?php
-$count = App\Models\Task::where('status', '!=', 'pending')
-    ->where(function ($q) {
-        $q->where('on_progress', 0)->orWhere('completed', 0);
-    })
-    ->count();
+    $count =App\Models\Task::where('user_id',Auth::user()->id)->where('seen', 0)->where('status', 'pending')->count();
 
-    $expiring = App\Models\Task::where('status', '!=', 'completed')->where(function ($q) {
+    $expiring = App\Models\Task::where('user_id', Auth::user()->id)->where('status', '!=', 'completed')->where(function ($q) {
         return $q->whereDate('end_date', '>=', Carbon\Carbon::now())->whereDate('end_date', '<=', Carbon\Carbon::now()->addDays(2));
     })->count();
+
 ?>
 
 <!DOCTYPE html>
@@ -43,59 +40,62 @@ $count = App\Models\Task::where('status', '!=', 'pending')
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                    <i class="fas fa-times"></i>
-                </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
+                <form action="{{ url('member/search') }}" method="GET">
+                    @csrf
+                    <div class="input-group custom-search-form" style="width: 500px;">
+                        <input type="search" class="form-control" placeholder="Search..." name="search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="fa fa-search" id="searchhover"></span>
+                            </button>
+                        </span>
 
-
+                </form>
 
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
 
-                        @if ($count > 0 || $expiring > 0)
-                        <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)">
+                    @if ($count > 0 || $expiring > 0)
+                    <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)">
 
-                            @endif
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">{{ $expiring > 0 ?  $count + $expiring : $count}}</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <span class="mr-2"></span><a class="text-secondary" href="@if ($count < 1) # @else {{ route('notify') }} @endif">{{ $count }}
-                            Updated status</a>
-                        <div class="dropdown-divider"></div>
-                        @if($expiring > 0)
-                        <span class="mr-2"></span><a class="text-secondary" href="{{route('expiringTasks') }}">
-                            {{$expiring}} Tasks are expiring soon!</a>
-                            @endif
-                        <div class="dropdown-divider"></div>
-                        <a href="{{route('notify')}}" class="dropdown-item dropdown-footer text-secondary">See All Notifications</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
+                        @endif
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge">@if($count >0 || $expiring>0){{ $expiring > 0 ?  $count + $expiring : $count}}@endif</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-item dropdown-header">{{$count+$expiring}} Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <span class="mr-2"></span><a class="text-secondary" href="@if ($count < 1) # @else {{ route('pending') }} @endif">{{ $count }}
+                         Assigned tasks</a>
+                    <div class="dropdown-divider"></div>
+                    @if($expiring > 0)
+                    <span class="mr-2"></span><a class="text-secondary" href="{{route('expiring') }}">
+                        {{$expiring}} Tasks are expiring soon!</a>
+                        @endif
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
             </ul>
+            <div class="btn-group">
+                <button type="button" class="btn addcolor dropdown-toggle" data-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ Auth::user()->name }}
+                </button>
+                <div class="boxx">
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="logbord" type="submit">{{ __('Log Out') }}</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
         <!-- /.navbar -->
 
@@ -119,7 +119,7 @@ $count = App\Models\Task::where('status', '!=', 'pending')
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('dashboards')}}" class="nav-link">
+                            <a href="{{route('userproject')}}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Assigned Projects </p>
                             </a>
@@ -223,7 +223,7 @@ $count = App\Models\Task::where('status', '!=', 'pending')
     <!-- Sparkline -->
     <script src="{{asset('js/sparkline.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="{{asset('js/demo.js')}}"></script>
+    {{-- <script src="{{asset('js/demo.js')}}"></script> --}}
 
 </body>
 </html>

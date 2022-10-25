@@ -27,8 +27,11 @@ class EditTasksRequest extends FormRequest
 
             'name'=>'required',
             'description'=>'required',
+            // 'status'=>'required',
             'start_date'=>'required',
-            'end_date'=>'required'
+            'end_date'=>'required',
+            'user_id'=>'required',
+            'project_id'=>'required',
         ];
     }
 }

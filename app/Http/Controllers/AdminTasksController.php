@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\User;
 use App\Http\Requests\TasksRequest;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -45,8 +46,9 @@ class AdminTasksController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->end_date);
 
-
+        try{
         // dd($request->all());
         $project = Project::find($request->project_id);
         $user = User::find($request->user_id);
@@ -61,7 +63,7 @@ class AdminTasksController extends Controller
             $user->projects()->save($project);
 
             $startDate = Carbon::parse($request->start_date)->format('Y-m-d');
-            $deadline = Carbon::parse($request->end_date)->format('Y-m-d');
+            $deadline = Carbon::parse($request->deadline)->format('Y-m-d');
 
             $addedTasks=[
                 'user_id' => $request->user_id,
@@ -71,9 +73,15 @@ class AdminTasksController extends Controller
                 'end_date' => $deadline,
                 'description' => $request->description,
             ];
-            Task::create($addedTasks);
-            return redirect('task/index');
-        // }
+            $updated = Task::create($addedTasks);
+            if($updated) {
+                return redirect('task/index')->with('success', 'Task has been created successfully');
+            }else{
+                return redirect('task/index')->with('error', 'Task has not been created');
+            }
+        }catch(Exception $ex){
+            return redirect('task/index')->with('error', 'error occured');
+        }        // }
         // dd($check);
 
 
@@ -114,6 +122,7 @@ class AdminTasksController extends Controller
      */
     public function update(EditTasksRequest $request)
     {
+        try{
         $id = $request->taskId;
         $tasks = Task::findOrFail($id);
         $startDate = Carbon::parse($request->start_date)->format('Y-m-d');
@@ -121,20 +130,26 @@ class AdminTasksController extends Controller
 
 
         $taskUpdate =[
-            'user_id' => $request->user_id,
+                'user_id' => $request->user_id,
                 'project_id' => $request->project_id,
+                // 'status' =>$request->status,
                 'name' => $request->name,
                 'start_date' => $startDate,
                 'end_date' => $deadline,
                 'description' => $request->description,
         ];
-        $tasks->update($taskUpdate);
-
+    $updated =  $tasks->update($taskUpdate);
         // $project = $tasks->project;
         // $project->update(['completed', 0]);
-        return redirect('task/index');
+    if($updated) {
+        return redirect('task/index')->with('success', 'Task has been updated successfully');
+    }else{
+        return redirect('task/index')->with('error', 'Task has not been updated');
     }
-
+}catch(Exception $ex){
+    return redirect('task/index')->with('error', 'error occured');
+}
+    }
     /**
      * Remove the specified resource from storage.
      *

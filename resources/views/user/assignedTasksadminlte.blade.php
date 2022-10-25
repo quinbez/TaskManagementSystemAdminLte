@@ -1,4 +1,4 @@
-@extends('layouts.indexAdminlte')
+@extends('user.indexAdminlte')
 
 
 @section('content')

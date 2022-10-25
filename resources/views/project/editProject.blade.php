@@ -2,6 +2,7 @@
 
 
 @section('content')
+<link rel="stylesheet" href="{{url('bower_components/select2/dist/css/select2.min.css')}}">
     <div class="wrapper">
         <div class="content-wrapper">
             <form action="{{ route('projupdate') }}" method="post" id="createMemberForm" class="p-4">
@@ -13,12 +14,13 @@
                         <div class="card card-danger p-4">
                             <div class="form-group">
                                 <label>Title</label>
+                                <input type="hidden" value="{{$projects->id}}" name="projectId">
                                 <input type="text" value="{{$projects->title}}" name="title" class="form-control" placeholder="Enter project title">
                             </div>
                             <div class="form-group col-sm-6">
                                 <label class="category_id">Category </label>
                                 <select name="category_id" id="category" class="form-control" required="true">
-                                    <option disabled selected hidden value="{{$projects->category->type}}">{{$projects->category->type}}</option>
+                                    <option selected hidden value="{{$projects->category->id}}">{{$projects->category->type}}</option>
                                     @foreach ($categories as $category)
                                         <option value="{{$category->id}}">{{$category->type}}</option>
                                     @endforeach

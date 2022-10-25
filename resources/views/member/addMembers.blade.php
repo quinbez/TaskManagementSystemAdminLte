@@ -21,12 +21,20 @@
                                     placeholder="Enter email">
                             </div>
                             <div class="form-group">
+                                <label>Role </label>
+                                <select name ='role' class='form-control' required = 'true'>
+                                    <option value = ''>Select Role</option>
+                                    <option value = 'member'>Member</option>
+                                    <option value = 'admin'>Admin</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
                                 <input type="password" name="password" class="form-control" id="exampleInputPassword1"
                                     placeholder="Password">
                             </div>
                             <div class="form-group">
-                                <label>US phone mask:</label>
+                                <label>Phone:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i

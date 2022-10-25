@@ -1,10 +1,11 @@
    @extends('layouts.adminlte')
     @section('content')
+    <link rel="stylesheet" href="{{ asset('css/adminlteTms.css') }}">
 
     <div class="wrapper">
         <div class="content-wrapper">
             <section class="content">
-                <div class="container-fluid">
+                <div class="container-fluid p-3">
                     <h5 class="mb-2">Dashboard</h5>
                     <div class="row">
                         <div class="col-md-3 col-sm-6 col-12">
@@ -111,9 +112,63 @@
                         </div>
                     </div>
                 </div>
+                <div class="container row gy-5 px-3">
+                    <div class="col-4 progresscontainer rounded">
+                        <div class="p-3 me-2 fontsize">Completed Tasks</div>
+                        <div class="container progressbar1">
+                            <div class="circular-progress1">
+                                <span class="progress-value1"></span>
+                                <input type="hidden" id="comletedTasks" value="{{ $completed }}">
+                                <input type="hidden" id="totalTasks" value="{{ $total_task }}">
+                            </div>
+                            <div class="p-2 px-2 font-weight-bold text-black">
+                                <h6>{{ $completed }} tasks</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 progresscontainer rounded">
+                        <div class="p-3 me-2 fontsize">Task on progress</div>
+                        <div class="container progressbar2">
+                            <div class="circular-progress2">
+                                <span class="progress-value2"></span>
+                                <input type="hidden" id="onProgress" value="{{ $on_progress }}">
+                                <input type="hidden" id="totalTasks" value="{{ $total_task }}">
+                            </div>
+                            <div class="p-2 px-2 font-weight-bold text-black">
+                                <h6>{{ $on_progress }} tasks</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 progresscontainer rounded">
+                        <div class="p-3 me-2 fontsize">Pending Tasks</div>
+                        <div class="container progressbar3">
+                            <div class="circular-progress3">
+                                <span class="progress-value3"></span>
+                                <input type="hidden" id="pendingTasks" value="{{ $pending_task }}">
+                                <input type="hidden" id="totalTasks" value="{{ $total_task }}">
+                            </div>
+                            <div class="p-3 px-2 font-weight-bold text-black" id="pending">
+                                <h6>{{ $pending_task }} tasks</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </section>
+
         </div>
     </div>
+
+    <script src="{{ asset('js/script.js') }}"></script>
+ <!-- jQuery -->
+ <script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $('#dashboardNav').addClass('active');
+    });
+
+</script>
+
     @endsection
 
 
