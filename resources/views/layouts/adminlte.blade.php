@@ -65,7 +65,7 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
 
 
                 <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown p-2">
 
                     @if ($count > 0 || $expiring > 0)
                         <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)">
