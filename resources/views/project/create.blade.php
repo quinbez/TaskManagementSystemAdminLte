@@ -9,8 +9,8 @@
         {{ csrf_field() }}
 <div class="row">
     <div class="form-group col-sm-6">
-        {!!Form::label('title','Title: ')!!}
-        {!!Form::text('title',null,['class'=>'form-control','required','title'=>"only alphabets are allowed","minlength"=>"2", "maxlength"=>"50" ,'pattern'=>"^[a-zA-Z - 0-9]*$"])!!}
+        <label>Title: </label>
+        <input type = "text" name = "title" class ="form-control" required = "true" title= "only alphabets are allowed" minlength="2" maxlength="50" pattern="^[a-zA-Z - 0-9]*$">
     </div>
     <div class="form-group col-sm-6">
         <label class="category_id">Category </label>
@@ -24,18 +24,18 @@
  </div>
 <div class="row">
     <div class="form-group col-sm-6">
-    {!!Form::label('start_date','Start Date')!!}
-    {!!Form::text('start_date', null, ['id'=> 'fromDatePicker','autocomplete'=>'off','class'=>'form-control', "required"])!!}
+        <label>Start Date</label>
+        <input type = "text" name = "start_date"  id= "fromDatePicker" autocomplete= "off" class="form-control" required = "true">
     </div>
     <div class="form-group col-sm-6">
-        {!!Form::label('deadline','Deadline')!!}
-        {!!Form::text('deadline', null, ['id'=> 'toDatePicker','autocomplete'=>'off', 'class'=>'form-control', "required"])!!}
+        <label>Deadline</label>
+        <input type = "text" name = "deadline" id= "toDatePicker" autocomplete= "off" class="form-control" required = "true">
     </div>
 </div>
 <div class="row">
     <div class="form-group col-sm-6">
-        {!!Form::label('description','Description: ')!!}
-        {!!Form::textarea('description',null,['class'=>'form-control', "rows"=>"3",'required','pattern'=>"^[a-zA-Z ]*$", "maxlength"=>"150"])!!}
+        <label>Description:</label>
+        <input type = "textarea" name = "description" class= "form-control" rows="3" required = "true" pattern = "^[a-zA-Z ]*$" maxlength="150">
     </div>
     <div class="form-group col-sm-6">
         <label class="team_member">Team members</label>
@@ -48,8 +48,8 @@
 </div>
 <div class="row w-100" style="justify-content:right">
     <div class="form-group d-flex col-3 p-4">
-        {!!Form::submit('+ Add', ['class' => 'btn addcolor me-4 col-5'])!!}
-        {!!Form::reset('Clear', ['class'=>'btn btn-secondary clearcolor col-5'])!!}
+        <input type = "submit" value = "+ Add" class = "btn addcolor me-4 col-5">
+        <input type = "reset" value = "Clear" class ="btn btn-secondary clearcolor col-5">
     </div>
 </div>
 
