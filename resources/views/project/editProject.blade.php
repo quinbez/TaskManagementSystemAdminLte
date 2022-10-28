@@ -6,7 +6,6 @@
     <div class="wrapper">
         <div class="content-wrapper">
             <form action="{{ route('projupdate') }}" method="post" id="createMemberForm" class="p-4">
-
                 <h3>Edit Project</h3>
                 {{ csrf_field() }}
                 <div class="row">
@@ -47,10 +46,13 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="form-group py-3">
+                                        <button type="submit" class="btn btn-primary  me-4 col-3">Edit</button>
+                                        <button type="reset" class="btn btn-secondary col-3">Clear</button>
                                     </div>
-
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -58,12 +60,12 @@
 
 <script src="{{ asset('jquery/jquery/jquery.js') }}"></script>
 <script src="{{ asset('jquery-ui/jquery-ui.min.js') }}"></script>
-    <script src="{{url('bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+<script src="{{url('bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 
     <script>
         $('.select2').select2({
-                    width: 'element'
-                });
+            width: 'element'
+        });
     </script>
  @endsection
 

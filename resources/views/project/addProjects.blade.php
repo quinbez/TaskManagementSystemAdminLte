@@ -3,11 +3,9 @@
 
 @section('content')
 <link rel="stylesheet" href="{{url('bower_components/select2/dist/css/select2.min.css')}}">
-
     <div class="wrapper">
         <div class="content-wrapper">
             <form action="{{ route('storeproj') }}" method="post" id="createMemberForm" class="p-4">
-
                 <h3>Add Project</h3>
                 {{ csrf_field() }}
                 <div class="row">
@@ -29,11 +27,11 @@
 
                             <div class="form-group col-sm-6">
                                 <label>Start Date</label>
-                                <input  type = "date"  name="start_date" id= 'fromDatePicker' autocomplete ='off' class='form-control' required="true">
+                                <input  type = "text"  name="start_date" id= 'fromDatePicker' autocomplete ='off' class='form-control' required="true">
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>End Date</label>
-                                <input  type = "date"  name="deadline" id= 'toDatePicker' autocomplete ='off' class='form-control' required="true">
+                                <input  type = "text"  name="deadline" id= 'toDatePicker' autocomplete ='off' class='form-control' required="true">
                             </div>
                                       <div class="form-group">
                                         <label>Description</label>
@@ -47,10 +45,13 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="form-group py-3">
+                                        <button type="submit" class="btn btn-primary me-4 col-3"> + Add</button>
+                                        <button type="reset" class="btn btn-secondary col-3">Clear</button>
                                     </div>
-
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -58,20 +59,19 @@
 
 <script src="{{ asset('jquery/jquery/jquery.js') }}"></script>
 <script src="{{ asset('jquery-ui/jquery-ui.min.js') }}"></script>
-    <script src="{{url('bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+<script src="{{url('bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 
     <script>
         $('.select2').select2({
                     width: 'element'
-                });
+        });
     </script>
-        <script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
-        <script>
-            $(document).ready(function() {
-                $('#projectNav').addClass('menu-open');
-                $('#projectNava').addClass('active');
-                $('#addprojectNav').addClass('active');
-            });
-        </script>
+    <script>
+        $(document).ready(function() {
+            $('#projectNav').addClass('menu-open');
+            $('#projectNava').addClass('active');
+            $('#addprojectNav').addClass('active');
+        });
+    </script>
  @endsection
 

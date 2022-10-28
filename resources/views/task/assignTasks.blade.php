@@ -34,18 +34,6 @@
                         </select>
                     </div>
                 </div>
-                {{-- <div class="row">
-                    <div class="form-group col-sm-6">
-                        <label class="status">Assigned to </label>
-                        <select name="status" id="status" class="form-control" required="true">
-                            <option disabled selected hidden value="{{$tasks->status}}">{{$tasks->status}}</option>
-                            @foreach ($tasks as $task)
-                                <option value="{{$task->status}}">{{$task->status}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div> --}}
-
                 <div class="form-group col-sm-6">
                     <label>Start Date</label>
                     <input  type = "text"  name="start_date" id= 'fromDatePicker' autocomplete ='off' class='form-control' required="true">

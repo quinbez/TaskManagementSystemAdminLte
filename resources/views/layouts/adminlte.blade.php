@@ -268,27 +268,15 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
     </div>
 
 
-
-
-
-
-    {{-- </div> --}}
-    {{-- </section> --}}
-
     <a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button"
         aria-label="Scroll to top">
         <i class="fas fa-chevron-up"></i>
     </a>
-    {{-- </div> --}}
 
     <footer class="main-footer">
         <strong>Copyright &copy;<a href="https://vintechplc.com/"> Vintage Technologies</a>.</strong> All rights
         reserved.
     </footer>
-
-    {{-- </div> --}}
-
-    <!-- jQuery -->
     <script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
