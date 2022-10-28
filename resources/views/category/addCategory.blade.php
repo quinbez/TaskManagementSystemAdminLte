@@ -25,5 +25,12 @@
         </form>
     </div>
 </div>
-
+<script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#categNav').addClass('menu-open');
+            $('#categNava').addClass('active');
+            $('#addcategNav').addClass('active');
+        });
+    </script>
 @endsection

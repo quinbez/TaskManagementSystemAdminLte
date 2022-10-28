@@ -56,7 +56,8 @@ $count = App\Models\Task::where('status', '!=', 'pending')
 
                         <div class="dropdown bg-light">
                             @if ($count > 0 || $expiring > 0)
-                                <a href="javascript:void(0)" class="dropbtn"><span class="badge badge-pill badge-primary me-1"
+                                <a href="javascript:void(0)" class="dropbtn">
+                                    <span class="badge badge-pill badge-primary me-1"
                                         style="float:right;margin-bottom:-10px;font-size:10px;">
                                         {{ $expiring > 0 ?  $count + $expiring : $count}}
                                     </span>

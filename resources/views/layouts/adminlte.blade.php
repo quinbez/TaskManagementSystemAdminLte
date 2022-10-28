@@ -155,15 +155,15 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href=" {{ route('create') }}" class="nav-link">
+                                        <a href=" {{ route('create') }}" class="nav-link" id="addMemberNav">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Add Members</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
+                            <li class="nav-item" id="categNav">
+                                <a href="#" class="nav-link" id="categNava">
                                     <i class="nav-icon fas fa-list-alt"></i>
                                     <p>
                                         Category
@@ -172,21 +172,21 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('indexcategory') }}" class="nav-link">
+                                        <a href="{{ route('indexcategory') }}" class="nav-link" id="allcategNav">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>All Categories</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('categories') }} " class="nav-link">
+                                        <a href="{{ route('categories') }} " class="nav-link" id="addcategNav">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Add Categories</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
+                            <li class="nav-item" id="projectNav">
+                                <a href="#" class="nav-link" id="projectNava">
                                     <i class="nav-icon fas fa-diagram-project"></i>
                                     <p>
                                         Project
@@ -195,13 +195,13 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('indexproj') }}" class="nav-link">
+                                        <a href="{{ route('indexproj') }}" class="nav-link" id="allprojectNav">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>All Projects</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('createproj') }}" class="nav-link">
+                                        <a href="{{ route('createproj') }}" class="nav-link" id="addprojectNav">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Add Projects</p>
                                         </a>
@@ -210,8 +210,8 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
 
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
+                            <li class="nav-item" id="taskNav">
+                                <a href="#" class="nav-link" id="taskNava">
                                     <i class="nav-icon fas fa-tasks"></i>
                                     <p>
                                         Task
@@ -220,13 +220,13 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('indextask') }}" class="nav-link">
+                                        <a href="{{ route('indextask') }}" class="nav-link" id="alltasktNav">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>All Tasks</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('tasks') }}" class="nav-link">
+                                        <a href="{{ route('tasks') }}" class="nav-link" id="assigntasktNav">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Assign Tasks</p>
                                         </a>
@@ -237,7 +237,7 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('notify') }}" class="nav-link">
+                                <a href="{{ route('notify') }}" class="nav-link" id="allnotiftNav">
                                     <i class="nav-icon fas fa-bell"></i>
                                     <p>
                                         Notifications

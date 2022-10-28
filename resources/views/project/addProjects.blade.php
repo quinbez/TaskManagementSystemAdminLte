@@ -65,5 +65,13 @@
                     width: 'element'
                 });
     </script>
+        <script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $('#projectNav').addClass('menu-open');
+                $('#projectNava').addClass('active');
+                $('#addprojectNav').addClass('active');
+            });
+        </script>
  @endsection
 

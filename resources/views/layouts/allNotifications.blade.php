@@ -65,7 +65,12 @@
           </section>
         </div>
     </div>
-
+    <script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#allnotiftNav').addClass('active');
+        });
+    </script>
 @endsection
 
 

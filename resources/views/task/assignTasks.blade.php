@@ -7,7 +7,7 @@
         <div class="content-wrapper">
             <form action="{{ route('storetask') }}" method="post" class="p-4">
 
-                <h3>Add Task</h3>
+                <h3>Assign Task</h3>
                 {{ csrf_field() }}
 
                 <div class="form-group col-sm-6">
@@ -61,6 +61,13 @@
                         <div class="form-group col-sm-6">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
-
-                        @endsection
+                        <script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
+                        <script>
+                            $(document).ready(function() {
+                                $('#taskNav').addClass('menu-open');
+                                $('#taskNava').addClass('active');
+                                $('#assigntasktNav').addClass('active');
+                            });
+                        </script>
+ @endsection
 

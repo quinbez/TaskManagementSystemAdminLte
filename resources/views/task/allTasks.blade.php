@@ -90,7 +90,14 @@
           </section>
         </div>
     </div>
-
+    <script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#taskNav').addClass('menu-open');
+            $('#taskNava').addClass('active');
+            $('#alltasktNav').addClass('active');
+        });
+    </script>
 @endsection
 
 
