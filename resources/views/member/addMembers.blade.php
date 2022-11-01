@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 <label>Role </label>
                                 <select name ='role' class='form-control' required = 'true'>
-                                    <option value = ''>Select Role</option>
+                                    <option value = '' selected hidden>Select Role</option>
                                     <option value = 'member'>Member</option>
                                     <option value = 'admin'>Admin</option>
                                 </select>
@@ -41,8 +41,8 @@
                                     <input type="text" name="phone_number" class="form-control" data-inputmask='"mask": "9999999999"' data-mask>
                                 </div>
                             </div>
-                            <div class="form-group  py-3">
-                                <button type="submit" class="btn btn-primary me-4 col-3"> + Add</button>
+                            <div class="form-group py-3">
+                                <button type="submit" class="btn btn-primary  mr-4 col-3"> + Add</button>
                                 <button type="reset" class="btn btn-secondary col-3">Clear</button>
                             </div>
                         </div>
