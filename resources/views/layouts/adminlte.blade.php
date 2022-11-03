@@ -57,11 +57,10 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                         <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)">
                     @endif
                     <i class="far fa-bell"></i>
+                    @if ($count > 0 || $expiring > 0)
                     <span class="badge badge-warning navbar-badge">
-                        @if ($count > 0 || $expiring > 0)
-                            {{ $expiring > 0 ? $count + $expiring : $count }}
-                        @endif
-                    </span>
+                        {{ $expiring > 0 ? $count + $expiring : $count }}
+                    </span> @endif
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header">{{ $count + $expiring }} Notifications</span>
