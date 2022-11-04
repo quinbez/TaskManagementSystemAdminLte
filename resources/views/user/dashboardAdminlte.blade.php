@@ -6,9 +6,9 @@
         <div class="content-wrapper">
             <section class="content">
                 <div class="container-fluid p-3">
-                    <h5 class="mb-2">Dashboard</h5>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-12">
+                    <h4 class="mb-2">Dashboard</h4>
+                    <div class="row py-3">
+                        <div class="col-md-6 col-sm-6 col-12 containerstyle px-4">
                             <div class="info-box">
                                 <span class="info-box-icon bg-warning"><i class="fas fa-tasks"></i></span>
 
@@ -21,22 +21,18 @@
                             <!-- /.info-box -->
                         </div>
                         <!-- /.col -->
-                        <div class="col-md-6 col-sm-6 col-12">
+                        <div class="col-md-6 col-sm-6 col-12 containerstyle px-4">
                             <div class="info-box">
                                 <span class="info-box-icon bg-purple"><i class="fas fa-diagram-project icons"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Total projects</span>
                                     <h6>{{$total_project}} added</h6>
                                 </div>
-                                <!-- /.info-box-content -->
                             </div>
-                            <!-- /.info-box -->
                         </div>
                     </div>
                     <div class="row">
-
-                        <!-- /.col -->
-                        <div class="col-md-4 col-sm-6 col-12">
+                        <div class="col-md-6 col-sm-6 col-12 containerstyle px-4">
                             <div class="info-box">
                                 <span class="info-box-icon bg-gray"><i class="fas fa-battery-empty"></i></span>
 
@@ -46,7 +42,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 col-12">
+                        <div class="col-md-6 col-sm-6 col-12 containerstyle px-4">
                             <div class="info-box">
                                 <span class="info-box-icon bg-orange"><i class="fas fa-battery-half"></i></span>
 
@@ -56,7 +52,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 col-12">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-12 containerstyle px-4 py-3">
                             <div class="info-box">
                                 <span class="info-box-icon bg-success"><i class="fas fa-battery-full"></i></span>
 
@@ -69,7 +67,7 @@
                     </div>
                 </div>
                 <div class="container row gy-5">
-                    <div class="col-4 progresscontainer rounded">
+                    <div class="col-md-3 col-sm-6 col-12 progresscontainer mr-2 ml-5 rounded">
                         <div class="p-3 me-2 fontsize">Completed Tasks</div>
                         <div class="container progressbar1">
                             <div class="circular-progress1">
@@ -84,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 progresscontainer rounded">
+                    <div class="col-md-3 col-sm-6 col-12 progresscontainer mr-2 ml-5 rounded">
                         <div class="p-3 me-2 fontsize">Task on progress</div>
                         <div class="container progressbar2">
                             <div class="circular-progress2">
@@ -100,7 +98,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 progresscontainer rounded">
+                    <div class="col-md-3 col-sm-6 col-12 progresscontainer mr-2 ml-5 rounded">
                         <div class="p-3 me-2 fontsize">Pending Tasks</div>
                         <div class="container progressbar3">
                             <div class="circular-progress3">
@@ -120,7 +118,13 @@
         </div>
     </div>
     <script src="{{ asset('js/script.js') }}"></script>
-
+    <script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#userdashboardNav').addClass('active');
+        });
+    
+    </script>
     @endsection
 
 

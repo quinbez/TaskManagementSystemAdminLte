@@ -60,9 +60,10 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                     @endif
                     <i class="far fa-bell"></i>
                     @if ($count > 0 || $expiring > 0)
-                    <span class="badge badge-warning navbar-badge">
-                        {{ $expiring > 0 ? $count + $expiring : $count }}
-                    </span> @endif
+                        <span class="badge badge-warning navbar-badge">
+                            {{ $expiring > 0 ? $count + $expiring : $count }}
+                        </span> 
+                    @endif
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header">{{ $count + $expiring }} Notifications</span>
@@ -89,7 +90,7 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <a class="logbord" type="submit">{{ __('Log Out') }}</a>
+                                <button class="logbord" type="submit">{{ __('Log Out') }}</button>
                             </form>
                         </li>
                     </ul>

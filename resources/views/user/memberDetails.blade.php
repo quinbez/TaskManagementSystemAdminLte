@@ -10,8 +10,9 @@
                     <div class="row">
                     <div class="col-12">
                         <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">{{ $user?->name }}</h3>
+                            <div class="card-header">
+                                <h3 class="card-title">{{ $user?->name }}</h3>
+                            </div>
                             <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
@@ -45,16 +46,14 @@
 
                             </tbody>
                             </table>
-                        </div>
+                                <a href="{{route('userproject')}}" class="backbtn"> Back</a>
                         </div>
                     </div>
                     </div>
-
                 </div>
-          </section>
+            </section> 
         </div>
     </div>
-
 @endsection
 
 

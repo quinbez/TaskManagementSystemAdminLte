@@ -1,8 +1,9 @@
 @extends('user.index')
 
 @section('content')
-
-    <h3>{{ $user?->name }}</h3>
+    <div class="card-header">
+        <h3>{{ $user?->name }}</h3>
+    </div>
     <table class='table'>
         <thead>
             <tr>
