@@ -96,9 +96,7 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                     </ul>
             </div>
         </ul>
-
         </nav>
-
         <div class="d-flex flex-nowrap">
             <div class="d-flex flex-column main-sidebar sidebar-dark-primary border border-grey border-top-0 sidelinecontainerwidth">
                 <a href="{{ route('dashboards') }}" class="brand-link">

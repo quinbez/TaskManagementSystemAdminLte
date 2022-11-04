@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="container row gy-5">
-                    <div class="col-md-3 col-sm-6 col-12 progresscontainer mr-2 ml-5 rounded">
+                    <div class="col-md-3 col-sm-6 col-12 progresscontainer mr-2 ml-5  mb-4 rounded">
                         <div class="p-3 me-2 fontsize">Completed Tasks</div>
                         <div class="container progressbar1">
                             <div class="circular-progress1">

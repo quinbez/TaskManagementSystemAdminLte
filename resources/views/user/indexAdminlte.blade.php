@@ -9,21 +9,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Task Management System</title>
-
-    <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
-    <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/adminlteTms.css') }}">
 </head>
@@ -33,32 +26,34 @@
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+                        <i class="fas fa-bars"></i>
+                    </a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                    <form action="{{ url('member/search') }}" method="GET">
-                        @csrf
-                        <div class="input-group custom-search-form" style="width: 500px;">
-                            <input type="search" class="form-control" placeholder="Search..." name="search">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                    <span class="fa fa-search" id="searchhover"></span>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
-                    <li class="nav-item dropdown">
-                        @if ($count > 0 || $expiring > 0)
-                        <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)">
-                        @endif
-                        <i class="far fa-bell"></i>
-                        @if($count >0 || $expiring>0)
-                            <span class="badge badge-warning navbar-badge">
-                                {{ $expiring > 0 ?  $count + $expiring : $count}}
-                            </span>
-                        @endif
-                        </a>
+                <form action="{{ url('member/search') }}" method="GET">
+                    @csrf
+                    <div class="input-group custom-search-form" style="width: 500px;">
+                        <input type="search" class="form-control" placeholder="Search..." name="search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="fa fa-search" id="searchhover"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+                <li class="nav-item dropdown mt-2 ml-2">
+                    @if ($count > 0 || $expiring > 0)
+                    <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)">
+                    @endif
+                    <i class="far fa-bell"></i>
+                    @if($count >0 || $expiring>0)
+                        <span class="badge badge-warning navbar-badge">
+                            {{ $expiring > 0 ?  $count + $expiring : $count}}
+                        </span>
+                    @endif
+                    </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header">{{$count+$expiring}} Notifications</span>
                         <div class="dropdown-divider"></div>
@@ -71,7 +66,7 @@
                         @endif
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item ">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>

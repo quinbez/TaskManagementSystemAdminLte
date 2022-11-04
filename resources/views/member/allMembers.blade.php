@@ -1,6 +1,5 @@
 @extends('layouts.adminlte')
 
-
 @section('content')
     <div class="wrapper">
         <div class="content-wrapper">
