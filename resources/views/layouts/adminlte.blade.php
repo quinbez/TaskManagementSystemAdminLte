@@ -27,6 +27,8 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="{{ url('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/adminlteTms.css') }}">
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -52,7 +54,7 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                     </div>
                 </form>
 
-                <li class="nav-item dropdown p-2">
+                <li class="nav-item dropdown">
                     @if ($count > 0 || $expiring > 0)
                         <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)">
                     @endif
@@ -79,23 +81,20 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-            </ul>
-
             <div class="btn-group">
                 <button type="button" class="btn addcolor dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     {{ Auth::user()->name }}
                 </button>
-                <div class="boxx">
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button class="logbord" type="submit">{{ __('Log Out') }}</button>
+                                <a class="logbord" type="submit">{{ __('Log Out') }}</a>
                             </form>
                         </li>
                     </ul>
-                </div>
             </div>
+        </ul>
 
         </nav>
 
@@ -206,20 +205,18 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                             <li class="nav-item">
                                 <a href="{{ route('notify') }}" class="nav-link" id="allnotiftNav">
                                     <i class="nav-icon fas fa-bell"></i>
-                                    <p>Notifications
-                                        <span class="right badge badge-danger">New</span>
-                                    </p>
+                                    <p>Notifications </p>
                                 </a>
                             </li>
                         </ul>
                     </nav>
                 </div>
             </div>
-            <div class="d-flex flex-grow-1 flex-column p-3">
+        </div>
+        <div class="d-flex flex-grow-1 flex-column">
 
-                @yield('content')
+            @yield('content')
 
-            </div>
         </div>
     </div>
 

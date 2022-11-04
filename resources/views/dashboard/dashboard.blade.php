@@ -1,13 +1,11 @@
    @extends('layouts.adminlte')
     @section('content')
-    <link rel="stylesheet" href="{{ asset('css/adminlteTms.css') }}">
-
     <div class="wrapper">
         <div class="content-wrapper">
             <section class="content">
                 <div class="container-fluid p-3">
-                    <h5 class="mb-2">Dashboard</h5>
-                    <div class="row">
+                    <h4 class="mb-2">Dashboard</h4>
+                    <div class="row py-3">
                         <div class="col-md-3 col-sm-6 col-12 containerstyle">
                             <div class="info-box">
                                 <span class="info-box-icon bg-info"><i class="fas fa-user"></i></span>
@@ -62,7 +60,7 @@
                         <!-- /.col -->
                     </div>
                     <div class="row">
-                        <div class="col-md-3 col-sm-6 col-12 containerstyle">
+                        <div class="col-md-3 col-sm-6 col-12 containerstyle mt-2">
                             <div class="info-box">
                                 <span class="info-box-icon bg-purple"><i class="fas fa-diagram-project icons"></i></span>
                                 <div class="info-box-content">
@@ -74,7 +72,7 @@
                             <!-- /.info-box -->
                         </div>
                         <!-- /.col -->
-                        <div class="col-md-3 col-sm-6 col-12 containerstyle">
+                        <div class="col-md-3 col-sm-6 col-12 containerstyle mt-2">
                             <div class="info-box">
                                 <span class="info-box-icon bg-gray"><i class="fas fa-battery-empty"></i></span>
 
@@ -87,7 +85,7 @@
                             <!-- /.info-box -->
                         </div>
                         <!-- /.col -->
-                        <div class="col-md-3 col-sm-6 col-12 containerstyle">
+                        <div class="col-md-3 col-sm-6 col-12 containerstyle mt-2">
                             <div class="info-box">
                                 <span class="info-box-icon bg-orange"><i class="fas fa-battery-half"></i></span>
 
@@ -100,7 +98,7 @@
                             <!-- /.info-box -->
                         </div>
                         <!-- /.col -->
-                        <div class="col-md-3 col-sm-6 col-12  containerstyle">
+                        <div class="col-md-3 col-sm-6 col-12  containerstyle mt-2">
                             <div class="info-box">
                                 <span class="info-box-icon bg-success"><i class="fas fa-battery-full"></i></span>
 
