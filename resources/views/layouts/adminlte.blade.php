@@ -54,7 +54,7 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                     </div>
                 </form>
 
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown  mt-2 ml-2">
                     @if ($count > 0 || $expiring > 0)
                         <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)">
                     @endif
