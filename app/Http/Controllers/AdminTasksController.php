@@ -170,7 +170,7 @@ class AdminTasksController extends Controller
             return $q->whereDate('end_date', '>=', Carbon::now())->whereDate('end_date', '<=', Carbon::now()->addDays(2));
         })->get();
 
-        return view('task.viewExpiringTasks', compact('tasks'));
+        return view('task.expiringTasks', compact('tasks'));
 
     }
 }

@@ -4,23 +4,13 @@
 @section('content')
     <div class="wrapper">
         <div class="content-wrapper">
-            <section class="content">
+            <section class="content p-4">
                 <div class="container-fluid">
                     <div class="row">
                     <div class="col-12">
                         <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Assigned Projects</h3>
-                            <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                <div class="input-group-append">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                                </div>
-                            </div>
-                            </div>
+                            <h2 class="card-title">Assigned Projects</h2>
                         </div>
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
@@ -62,7 +52,6 @@
                                         </tr>
                                     @endforeach
                                 @endif
-
                             </tbody>
                             </table>
                         </div>
@@ -74,7 +63,13 @@
           </section>
         </div>
     </div>
-
+    <script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#userAssignedProjNav').addClass('active');
+        });
+    </script>
 @endsection
+
 
 

@@ -4,7 +4,7 @@
 @section('content')
     <div class="wrapper">
         <div class="content-wrapper">
-            <section class="content">
+            <section class="content p-4">
                 <div class="container-fluid">
                     <div class="row">
                     <div class="col-12">
@@ -65,7 +65,12 @@
           </section>
         </div>
     </div>
-
+    <script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#allnotiftNav').addClass('active');
+        });
+    </script>
 @endsection
 
 

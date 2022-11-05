@@ -15,8 +15,9 @@
                             <input type="text" name="type" class="form-control" placeholder="Enter type">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="form-group py-4">
+                        <button type="submit" class="btn btn-primary mr-4 col-3"> + Add</button>
+                        <button type="reset" class="btn btn-secondary col-3">Clear</button>
                     </div>
 
                 </div>
@@ -25,5 +26,12 @@
         </form>
     </div>
 </div>
-
+<script src="{{ asset('jquery/jquery/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#categNav').addClass('menu-open');
+            $('#categNava').addClass('active');
+            $('#addcategNav').addClass('active');
+        });
+    </script>
 @endsection
