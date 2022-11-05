@@ -81,5 +81,6 @@ Route::get('completed/update/{id}', 'App\Http\Controllers\UserTasksController@to
 Route::get('/notification', 'App\Http\Controllers\AdminNotificationController@index')->name('notify');
 Route::get('/task/expiringTasks', 'App\Http\Controllers\AdminTasksController@expiringTasks')->name('expiringTasks');
 Route::get('/user/expiring', 'App\Http\Controllers\UserTasksController@expiring')->name('expiring');
+Route::get('/user/search', 'App\Http\Controllers\UserTasksController@search')->name('usersearch');
 
 });

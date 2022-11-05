@@ -32,7 +32,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <form action="{{ url('member/search') }}" method="GET">
+                <form action="{{ url('user/search') }}" method="GET">
                     @csrf
                     <div class="input-group custom-search-form" style="width: 500px;">
                         <input type="search" class="form-control" placeholder="Search..." name="search">

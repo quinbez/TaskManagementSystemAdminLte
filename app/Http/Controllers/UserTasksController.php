@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Models\Task;
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,6 +50,17 @@ class UserTasksController extends Controller
         $tasks->update($taskUpdate);
         return redirect('user/completed/task');
 
+    }
+    public function search(Request $request)
+    {
+        $tasks = Task::where('name', 'like', "%$request->search%")->get();
+        $projects = Project::where('title', 'like', "%$request->search%")->get();
+        if (count($tasks) > 0) {
+            return view('user.assignedTasksadminlte', compact('tasks'));
+        } elseif (count($projects) > 0) {
+            return view('user.assignedProjectsadminlte', compact('projects'));
+        }else
+            return redirect()->back()->with('error', ' Nothing found');
     }
 
 }
