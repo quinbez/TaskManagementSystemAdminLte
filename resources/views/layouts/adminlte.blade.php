@@ -5,17 +5,14 @@ $count = App\Models\Task::where('status', '!=', 'pending')
         $q->where('on_progress', 1)->orWhere('completed', 1);
     })
     ->count();
-
 $expiring = App\Models\Task::where('status', '!=', 'completed')
     ->where(function ($q) {
         return $q->whereDate('end_date', '>=', Carbon\Carbon::now())->whereDate('end_date', '<=', Carbon\Carbon::now()->addDays(2));
     })
     ->count();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +24,6 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
@@ -61,9 +57,6 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                         </span>
 
                 </form>
-
-
-
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
 
@@ -96,7 +89,6 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                     </a>
                 </li>
             </ul>
-
             <div class="btn-group">
                 <button type="button" class="btn addcolor dropdown-toggle" data-toggle="dropdown"
                     aria-expanded="false">
@@ -128,7 +120,6 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
                 <a href="{{ route('dashboards') }}" class="brand-link">
                     <span class="brand-text font-weight-light">Task Management System</span>
                 </a>
-
                 <div class="sidebar">
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
@@ -266,10 +257,6 @@ $expiring = App\Models\Task::where('status', '!=', 'completed')
     </div>
 
     </div>
-
-
-
-
 
 
     {{-- </div> --}}
