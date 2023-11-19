@@ -34,9 +34,7 @@ The general objective for this project is to develop web based task management s
 
 The task management system was designed to:
 
-
     	Enable the admin to create and assign tasks.
-    
     
     	Enable the admin to set deadlines for each tasks.
     
